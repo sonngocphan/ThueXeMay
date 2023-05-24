@@ -1,0 +1,365 @@
+USE [dbShopsDefault]
+GO
+/****** Object:  Table [dbo].[tbAboutUs]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbAboutUs](
+	[ID_AboutUs] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](200) NULL,
+	[Image] [nvarchar](100) NULL,
+	[SummaryContent] [nvarchar](500) NULL,
+	[Description] [ntext] NULL,
+	[TitleWeb] [nvarchar](200) NULL,
+	[LinkSEO] [varchar](200) NULL,
+	[H1SEO] [nvarchar](200) NULL,
+	[KeywordSEO] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_AboutUs] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbContact]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbContact](
+	[ID_Contact] [int] IDENTITY(1,1) NOT NULL,
+	[ContactName] [nvarchar](100) NULL,
+	[FullName] [nvarchar](100) NULL,
+	[Phone] [varchar](20) NULL,
+	[Email] [varchar](100) NULL,
+	[Description] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Contact] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbLogs]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbLogs](
+	[ID_Log] [int] IDENTITY(1,1) NOT NULL,
+	[ID_User] [int] NULL,
+	[Description] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Log] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbNews]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbNews](
+	[ID_News] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Catalog] [int] NULL,
+	[Title] [nvarchar](200) NULL,
+	[Image] [nvarchar](100) NULL,
+	[SummaryContent] [nvarchar](500) NULL,
+	[Description] [ntext] NULL,
+	[TitleWeb] [nvarchar](200) NULL,
+	[LinkSEO] [varchar](200) NULL,
+	[H1SEO] [nvarchar](200) NULL,
+	[KeywordSEO] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_News] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbNewsCatalogs]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbNewsCatalogs](
+	[ID_Catalog] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Parent] [int] NULL,
+	[CatalogName] [nvarchar](100) NULL,
+	[Image] [nvarchar](100) NULL,
+	[Description] [ntext] NULL,
+	[TitleWeb] [nvarchar](100) NULL,
+	[LinkSEO] [varchar](100) NULL,
+	[H1SEO] [nvarchar](100) NULL,
+	[KeywordSEO] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Catalog] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbShopsCatalogs]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbShopsCatalogs](
+	[ID_Catalog] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Parent] [int] NULL,
+	[CatalogName] [nvarchar](100) NULL,
+	[Image] [nvarchar](100) NULL,
+	[Description] [ntext] NULL,
+	[TitleWeb] [nvarchar](100) NULL,
+	[LinkSEO] [varchar](100) NULL,
+	[H1SEO] [nvarchar](100) NULL,
+	[KeywordSEO] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Catalog] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbShopsCurrencyUnit]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbShopsCurrencyUnit](
+	[ID_CurrencyUnit] [int] IDENTITY(1,1) NOT NULL,
+	[CurrencyUnitName] [nvarchar](100) NULL,
+	[Image] [nvarchar](100) NULL,
+	[Description] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_CurrencyUnit] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbShopsImages]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbShopsImages](
+	[ID_ImageProduct] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Product] [int] NULL,
+	[ImageProductName] [nvarchar](100) NULL,
+	[UrlImage] [nvarchar](100) NULL,
+	[Description] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_ImageProduct] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbShopsManufacture]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbShopsManufacture](
+	[ID_Manufacture] [int] IDENTITY(1,1) NOT NULL,
+	[ManufactureName] [nvarchar](100) NULL,
+	[Image] [nvarchar](100) NULL,
+	[Description] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Manufacture] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbShopsOrders]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbShopsOrders](
+	[ID_Order] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Product] [int] NULL,
+	[ID_OrderProduct] [int] NULL,
+	[Amount] [int] NULL,
+	[PriceTotal] [float] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Order] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbShopsOrdersDetail]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbShopsOrdersDetail](
+	[ID_OrderProduct] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Payment] [int] NULL,
+	[ID_User] [int] NULL,
+	[OrdersName] [nvarchar](100) NULL,
+	[UserName] [nvarchar](100) NULL,
+	[UserEmail] [nvarchar](100) NULL,
+	[UserAddress] [nvarchar](100) NULL,
+	[UserPhone] [nvarchar](100) NULL,
+	[Status] [nvarchar](100) NULL,
+	[DayIn] [datetime] NULL,
+	[DayOut] [datetime] NULL,
+	[Description] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_OrderProduct] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbShopsPayments]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbShopsPayments](
+	[ID_Payment] [int] IDENTITY(1,1) NOT NULL,
+	[PaymentName] [nvarchar](100) NULL,
+	[Description] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Payment] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbShopsProducts]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbShopsProducts](
+	[ID_Product] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Catalog] [int] NULL,
+	[ID_Manufacture] [int] NULL,
+	[ID_CurrencyUnit] [int] NULL,
+	[ProductName] [nvarchar](200) NULL,
+	[ProductCode] [varchar](20) NULL,
+	[Image] [nvarchar](100) NULL,
+	[PriceIn] [float] NULL,
+	[PriceOut] [float] NULL,
+	[PriceDiscount] [float] NULL,
+	[PriceShow] [bit] NULL,
+	[Weight] [float] NULL,
+	[Color] [nvarchar](30) NULL,
+	[Amount] [int] NULL,
+	[MfgDate] [datetime] NULL,
+	[ExpDate] [datetime] NULL,
+	[SummaryContent] [nvarchar](500) NULL,
+	[VAT] [bit] NULL,
+	[Description] [ntext] NULL,
+	[TitleWeb] [nvarchar](200) NULL,
+	[LinkSEO] [varchar](200) NULL,
+	[H1SEO] [nvarchar](200) NULL,
+	[KeywordSEO] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Product] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbSlider]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbSlider](
+	[ID_Slider] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](200) NULL,
+	[Image] [nvarchar](100) NULL,
+	[SummaryContent] [nvarchar](500) NULL,
+	[Description] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Slider] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbUsers]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbUsers](
+	[ID_User] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Catalog] [int] NULL,
+	[UserName] [nvarchar](50) NULL,
+	[Password] [varchar](50) NULL,
+	[FullName] [nvarchar](100) NULL,
+	[Image] [nvarchar](100) NULL,
+	[Gender] [nvarchar](20) NULL,
+	[Email] [varchar](100) NULL,
+	[PhoneNumber] [varchar](20) NULL,
+	[Description] [ntext] NULL,
+	[TitleWeb] [nvarchar](100) NULL,
+	[LinkSEO] [varchar](100) NULL,
+	[H1SEO] [nvarchar](100) NULL,
+	[KeywordSEO] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_User] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbUsersCatalogs]    Script Date: 16/05/2023 3:41:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbUsersCatalogs](
+	[ID_Catalog] [int] IDENTITY(1,1) NOT NULL,
+	[CatalogName] [nvarchar](100) NULL,
+	[Description] [ntext] NULL,
+	[AddTime] [datetime] NULL,
+	[EditTime] [datetime] NULL,
+	[Hidden] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Catalog] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
